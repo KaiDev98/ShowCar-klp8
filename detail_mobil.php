@@ -1,3 +1,6 @@
+//diedit oleh rifki 
+//testtt 
+
 <?php
 session_start();
 include 'config.php';
