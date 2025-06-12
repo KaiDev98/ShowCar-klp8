@@ -1,0 +1,155 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.detail-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+}
+
+.image-section {
+  flex: 1 1 100%;
+  position: relative;
+}
+
+.main-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  max-height: 500px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-image img:hover {
+  transform: scale(1.02);
+  cursor: zoom-in;
+}
+
+.thumbnail-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.thumbnail-container img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s ease;
+}
+
+.thumbnail-container img:hover {
+  opacity: 1;
+}
+
+.thumbnail-container img.active-thumbnail {
+  border: 2px solid #0288d1;
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(2, 136, 209, 0.4);
+}
+
+.info-section {
+  flex: 1;
+}
+
+.info-section h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.info-section .price {
+  font-size: 24px;
+  color: #e63946;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.spec-item i {
+  color: #1d3557;
+  font-size: 20px;
+}
+
+.buy-box {
+  margin-top: 20px;
+  background-color: #f1f5f9;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.buy-box button {
+  background: linear-gradient(to right, #7b2cbf, #5a189a);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.buy-box button:hover {
+  opacity: 0.9;
+}
+
+.video-section {
+  margin: 30px auto;
+  max-width: 900px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+}
+
+.video-section h3 {
+  margin-bottom: 15px;
+}
+
+/* Navigasi Tab Tengah */
+#tabs {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.tab-item {
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.tab-item.active {
+  border-bottom: 2px solid #0288d1;
+  color: #0288d1;
+}
