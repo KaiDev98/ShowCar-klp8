@@ -245,7 +245,7 @@
 
     <!-- review -->
      <h2 id="ulasan"  style="text-align:center; margin-top:40px;" class="fw-bold">🏆 Ulasan dari Pelanggan Kami</h2>
-<p style="text-align:center; margin-bottom:30px;">Temukan apa yang dikatakan pelanggan yang sudah membeli mobil</p>
+<p style="text-align:center; margin-bottom:30px;">Temukan apa yang dikatakan pelanggan Kami</p>
 
 <div class="review-container">
   <?php
