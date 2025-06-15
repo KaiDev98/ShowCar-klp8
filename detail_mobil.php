@@ -1,3 +1,6 @@
+//diedit oleh rifki 
+//testtt 
+
 <?php
 session_start();
 include 'config.php';
@@ -9,7 +12,6 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-// Ambil data mobil lengkap
 $query = "
     SELECT m.*, mr.nama_merek, k.nama_kategori
     FROM mobil m
@@ -26,7 +28,6 @@ if ($result->num_rows == 0) {
 
 $data = $result->fetch_assoc();
 
-// Ambil gambar-gambar untuk slider (dari tabel gambar_mobil)
 $gambarList = [];
 $q = $conn->query("SELECT gambar FROM gambar_mobil WHERE id_mobil = $id");
 while ($row = $q->fetch_assoc()) {
@@ -288,7 +289,6 @@ while ($row = $q->fetch_assoc()) {
       });
     });
 
-      // Auto buka tab dari URL parameter
   const params = new URLSearchParams(window.location.search);
   const tabParam = params.get("tab");
   if (tabParam) {
@@ -303,14 +303,12 @@ while ($row = $q->fetch_assoc()) {
     }
   }
 
-    // Cek apakah URL mengandung ?tab=diskusi
   const urlParams = new URLSearchParams(window.location.search);
   const tab = urlParams.get('tab');
 
   if (tab === 'diskusi') {
     document.getElementById('tab-diskusi').style.display = 'block';
 
-    // Jika kamu punya tab lain, pastikan disembunyikan
     const tabLain = document.querySelectorAll('.tab-content');
     tabLain.forEach(t => {
       if (t.id !== 'tab-diskusi') {
@@ -318,7 +316,6 @@ while ($row = $q->fetch_assoc()) {
       }
     });
 
-    // Jika kamu punya navigasi tab aktif, bisa aktifkan tab diskusi di sana juga (opsional)
     const diskusiTabNav = document.querySelector('[data-tab="diskusi"]');
     if (diskusiTabNav) {
       diskusiTabNav.classList.add('active'); // Tambah class jika kamu pakai
