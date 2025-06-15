@@ -14,7 +14,7 @@
             <p class="text-muted">Ajukan pertanyaan atau diskusikan seputar mobil di showroom kami.</p>
         </div>
 
-        <!-- Form Topik Baru -->
+        <!-- Form Topik Baru bro-->
         <div class="card shadow-sm mb-5">
             <div class="card-header bg-danger text-white">
                 <h5 class="mb-0">Buat Topik Baru</h5>
