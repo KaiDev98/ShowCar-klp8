@@ -7,7 +7,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Ambil data berita terbaru
 $berita = mysqli_query($conn, "SELECT * FROM berita ORDER BY tanggal_publikasi DESC");
 ?>
 
