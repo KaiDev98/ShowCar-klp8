@@ -90,18 +90,6 @@ $brand_filter = isset($_GET['brand']) ? strtolower($_GET['brand']) : 'all';
               </span>
             </a>
           </li>
-        <!-- Services Dropdown -->
-        <!-- <li class="nav-item dropdown mx-2">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            Services
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="diskusi.php">Diskusi</a></li>
-            <li><a class="dropdown-item" href="review.php">Review & Rating</a></li>
-            <li><a class="dropdown-item" href="booking.php">Booking Test Drive</a></li>
-          </ul>
-        </li>
-      </ul> -->
 
       <!-- User Dropdown -->
       <div class="dropdown ms-3">
@@ -134,64 +122,6 @@ $brand_filter = isset($_GET['brand']) ? strtolower($_GET['brand']) : 'all';
       </div>
     </section>
     <!-- akhiran section -->
-
-    <!-- awalan feature -->
-     <!-- <section class="feature-row">
-  <div class="feature-row"> -->
-    <!-- Box 1 -->
-    <!-- <div class="feature-box box-1">
-      <div class="feature-content">
-        <h5>Persetujuan Cepat</h5>
-        <p>
-          Kami hadir di media sosial Proses persetujuan yang cepat dan mudah bagi pembeli mobil dengan alat canggih kami yang tersedia sekarang.
-        </p>
-        <a href="#shop" class="feature-btn">Cek detail <span>➜</span></a>
-      </div>
-      <div class="big-number">01</div>
-    </div> -->
-
-    <!-- Box 2 -->
-    <!-- <div class="feature-box box-2 with-bg"
-         style="background-image: url('assets/img/stir1.jpg');">
-      <div class="feature-content"></div>
-    </div> -->
-
-    <!-- Box 3 -->
-    <!-- <div class="feature-box box-3">
-      <div class="feature-content">
-        <h5>Mudah digunakan</h5>
-        <p>
-          Navigasi yang mudah dan pengalaman pengguna yang lancar bagi siapa saja yang membutuhkan solusi mobil.
-        </p>
-        <a href="#shop" class="feature-btn">Cek detail<span>➜</span></a>
-      </div>
-      <div class="big-number">02</div>
-    </div> -->
-
-    <!-- Box 4 -->
-    <!-- <div class="feature-box box-4 with-bg"
-         style="background-image: url('assets/img/stir.avif');">
-      <div class="feature-content"></div>
-    </div>
-  </div>
-</section> -->
-    <!-- akhiran feature  -->
-
-    <!-- porsche highlight -->
-    <!-- <div id="porsche" class="porsche">
-      <img src="assets/img/porsche.avif" alt="Red Porsche" class="car-image" />
-      <div class="text-porsche">
-        <h4 class="sub-title">Mobil Baru Brent</h4>
-        <h1 class="main-title">Rasakan Kekuatan<br />Porsche.</h1>
-        <p>
-         Porsche sama uniknya dengan pemiliknya. Porsche selalu merupakan ekspresi kepribadian seseorang. Kami membantu Anda menemukan kendaraan impian pribadi Anda dari Pusat Porsche resmi.
-        </p>
-        <a href="https://en.wikipedia.org/wiki/Porsche" class="button-porsche"
-          >Baca Selengkapnya<span>&rarr;</span></a
-        >
-      </div>
-    </div> -->
-    <!-- akhiran porsche -->
 
     <!-- brand logo -->
     <div class="brand-row">
@@ -378,7 +308,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
 
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 id="berita" class="fw-bold">Berita Otomotif Dan Review</h2>
+    <h2 id="berita" class="fw-bold">Berita Otomotif</h2>
     <a href="berita-otomotif.php" class="btn btn-link text-danger fw-semibold">
       Baca Semua Berita Terbaru <i class="bi bi-arrow-right"></i>
     </a>
@@ -591,14 +521,11 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
 
         <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Bundle JS (sudah termasuk Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-// simple client-side filter
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    // toggle active class
     document.querySelector('.filter-btn.active').classList.remove('active');
     btn.classList.add('active');
 
@@ -613,7 +540,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-  // Ambil semua elemen dengan class 'faq-question'
+
   const faqQuestions = document.querySelectorAll('.faq-question');
 
   faqQuestions.forEach((question) => {
