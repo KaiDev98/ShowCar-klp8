@@ -54,9 +54,6 @@
             <li class="nav-item mx-2">
               <a class="nav-link" href="#berita">Berita</a>
             </li>
-            <!-- <li class="nav-item mx-2">
-              <a class="nav-link" href="#contact">Kontak</a>
-            </li> -->
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link" href="#faqs">Faqs</a>
@@ -97,62 +94,6 @@
       </div>
     </section>
     <!-- akhiran section -->
-
-    <!-- awalan feature -->
-    <!-- <section class="feature-row">
-      <div class="feature-row"> -->
-        <!-- Box 1 -->
-        <!-- <div class="feature-box box-1">
-          <div class="feature-content">
-            <h5>Persetujuan Cepat</h5>
-            <p>
-             Kami hadir di media sosial Proses persetujuan yang cepat dan mudah bagi pembeli mobil dengan alat canggih kami yang tersedia sekarang.
-            </p>
-            <a href="#shop" class="feature-btn">Cek Detail <span>➜</span></a>
-          </div>
-          <div class="big-number">01</div>
-        </div> -->
-
-        <!-- Box 2 -->
-        <!-- <div class="feature-box box-2 with-bg">
-          <div class="feature-content"></div>
-        </div> -->
-
-        <!-- Box 3 -->
-        <!-- <div class="feature-box box-3">
-          <div class="feature-content">
-            <h5>Mudah digunakan</h5>
-            <p>
-              Navigasi yang mudah dan pengalaman pengguna yang lancar bagi siapa saja yang membutuhkan solusi mobil.
-            </p>
-            <a href="#shop" class="feature-btn">Cek Detail <span>➜</span></a>
-          </div>
-          <div class="big-number">02</div>
-        </div> -->
-
-        <!-- Box 4 -->
-        <!-- <div class="feature-box box-4 with-bg">
-          <div class="feature-content"></div>
-        </div>
-      </div>
-    </section> -->
-    <!-- akhiran feature  -->
-
-    <!-- porsche highlight -->
-    <!-- <div id="porsche" class="porsche">
-      <img src="assets/img/porsche.avif" alt="Red Porsche" class="car-image" />
-      <div class="text-porsche">
-        <h4 class="sub-title">Mobil Baru Brent</h4>
-        <h1 class="main-title">Rasakan Kekuatan<br />Porsche.</h1>
-        <p>
-          Porsche sama uniknya dengan pemiliknya. Porsche selalu merupakan ekspresi kepribadian seseorang. Kami membantu Anda menemukan kendaraan impian pribadi Anda dari Pusat Porsche resmi.
-        </p>
-        <a href="https://en.wikipedia.org/wiki/Porsche" class="button-porsche"
-          >Baca Selengkapnya <span>&rarr;</span></a
-        >
-      </div>
-    </div> -->
-    <!-- akhiran porsche -->
 
     <!-- brand logo -->
     <div class="brand-row">
