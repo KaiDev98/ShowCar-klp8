@@ -12,7 +12,6 @@ $row = mysqli_fetch_assoc($result);
   <div><?= nl2br(htmlspecialchars($row['isi'])) ?></div>
 </article>
 
-
 <!DOCTYPE html>
 <html>
 <head>
