@@ -7,11 +7,8 @@ if (!isset($_SESSION['username'])) {
 ?>
 <?php
 
-session_start();
 include 'koneksi.php';
 
-
-// Ambil brand dari URL, default 'all'
 $brand_filter = isset($_GET['brand']) ? strtolower($_GET['brand']) : 'all';
 ?>
 
