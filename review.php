@@ -16,17 +16,14 @@ session_start();
   <?php if (isset($_SESSION['success'])): ?>
     <div class="notif success"><?= $_SESSION['success']; unset($_SESSION['success']); ?></div>
   <?php endif; ?>
-
   <?php if (isset($_SESSION['error'])): ?>
     <div class="notif error"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
   <?php endif; ?>
 
   <h2>🏆 Review & Rating Mobil</h2>
-
   <form action="simpan_review.php" method="POST">
     <label>Nama Anda:</label>
     <input type="text" name="nama" required>
-
     <label>Pilih Mobil:</label>
     <select name="mobil_id" required>
       <option value="">-- Pilih Mobil --</option>
@@ -40,7 +37,7 @@ session_start();
 
     <label>Komentar:</label>
     <textarea name="komentar" rows="4" required></textarea>
-
+    
     <label>Rating:</label>
     <select name="rating" required>
       <?php for($i=1;$i<=5;$i++) echo "<option value='$i'>$i</option>"; ?>
@@ -65,6 +62,5 @@ session_start();
   ?>
   </div>
 </div>
-
 </body>
 </html>
