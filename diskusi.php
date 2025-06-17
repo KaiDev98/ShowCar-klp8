@@ -1,4 +1,20 @@
-<?php include 'db.php'; ?>
+<?php
+require_once 'db.php';
+
+// Ambil data topik
+$topics = [];
+$sql = "SELECT * FROM topik ORDER BY tanggal DESC";
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $topics[] = $row;
+    }
+    $stmt->close();
+} else {
+    die("Query gagal: " . $conn->error);
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,7 +31,7 @@
             <p class="text-muted">Ajukan pertanyaan atau diskusikan seputar mobil di showroom kami.</p>
         </div>
 
-        <!-- Form Topik Baru klo ini-->
+        <!-- Form Topik Baru -->
         <div class="card shadow-sm mb-5">
             <div class="card-header bg-danger text-white">
                 <h5 class="mb-0">Buat Topik Baru</h5>
@@ -42,21 +58,28 @@
         <!-- Bagian Topik -->
         <h5 class="mb-3">Topik Terbaru</h5>
         <div class="forum-topics">
-            <?php
-            $result = $conn->query("SELECT * FROM topik ORDER BY tanggal DESC");
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='card forum-topic mb-3'>";
-                echo "<div class='card-body'>";
-                echo "<h6 class='card-title'>" . htmlspecialchars($row['judul']) . "</h6>";
-                echo "<p class='card-text text-muted'>" . nl2br(htmlspecialchars(substr($row['isi'], 0, 80))) . "...</p>";
-                echo "<div class='d-flex justify-content-between align-items-center'>";
-                echo "<small class='text-secondary'>Oleh: <strong>" . htmlspecialchars($row['nama']) . "</strong> | " . $row['tanggal'] . "</small>";
-                echo "<a href='balas_topik.php?id=" . $row['id'] . "' class='btn btn-sm btn-outline-primary'>Lihat & Balas</a>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-            }
-            ?>
+            <?php if (count($topics) > 0): ?>
+                <?php foreach ($topics as $row): ?>
+                    <div class="card forum-topic mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title"><?= htmlspecialchars($row['judul']) ?></h6>
+                            <p class="card-text text-muted">
+                                <?= nl2br(htmlspecialchars(substr($row['isi'], 0, 80))) ?>...
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-secondary">
+                                    Oleh: <strong><?= htmlspecialchars($row['nama']) ?></strong> | <?= $row['tanggal'] ?>
+                                </small>
+                                <a href="balas_topik.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-primary">
+                                    Lihat & Balas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-muted">Belum ada topik yang diposting.</p>
+            <?php endif; ?>
         </div>
     </div>
 </body>
