@@ -4,7 +4,7 @@ require 'koneksi.php';
 
 // Validasi login
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
-    die("Anda harus login terlebih dahulu.");
+    die("Anda harus login untuk memberikan ulasan.");
 }
 
 // Ambil data dari form
@@ -15,8 +15,8 @@ $rating    = isset($_POST['rating']) ? intval($_POST['rating']) : 0;
 $created_at = date('Y-m-d H:i:s');
 
 // Validasi input
-if (strlen($komentar) < 20) {
-    die("Komentar minimal 20 karakter.");
+if (strlen($komentar) < 10) {
+    die("Komentar minimal 10 karakter.");
 }
 if ($rating < 1 || $rating > 5) {
     die("Rating harus antara 1 sampai 5.");
