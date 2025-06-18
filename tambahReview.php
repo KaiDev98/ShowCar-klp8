@@ -68,8 +68,8 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
       <!-- Komentar -->
       <div>
         <label class="block mb-1 font-semibold">Review pengalaman Anda:</label>
-        <textarea name="komentar" class="w-full border border-gray-300 rounded-lg p-3" rows="5" placeholder="Kami akan menyukai pendapat Anda itu" required minlength="20"></textarea>
-        <small class="text-sm text-gray-500">Minimum 20 kata dibutuhkan</small>
+        <textarea name="komentar" class="w-full border border-gray-300 rounded-lg p-3" rows="5" placeholder="Kami akan menyukai pendapat Anda" required minlength="10"></textarea>
+        <small class="text-sm text-gray-500">Minimum 10 kata dibutuhkan</small>
       </div>
 
       <!-- Judul -->
@@ -82,7 +82,7 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
       <!-- Submit -->
       <div>
         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow">
-          Kirimkan
+          Kirim
         </button>
       </div>
     </form>
