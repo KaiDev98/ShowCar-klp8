@@ -18,7 +18,7 @@ $result = $koneksi->query($sql);
     <title>Ulasan Pelanggan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
+    
 <body class="bg-gray-50 text-gray-800">
     <section class="max-w-7xl mx-auto px-4 py-10">
         <div class="text-center mb-10">
@@ -39,5 +39,6 @@ $result = $koneksi->query($sql);
             <?php endwhile; ?>
         </div>
     </section>
+    
 </body>
 </html>
