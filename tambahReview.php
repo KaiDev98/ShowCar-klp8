@@ -28,57 +28,123 @@ $result_gambar = $stmt_gambar->get_result();
 $gambar_data = $result_gambar->fetch_assoc();
 $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Review <?= htmlspecialchars($mobil['nama_mobil']) ?></title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>Review <?= htmlspecialchars($mobil['nama_mobil']) ?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #f4fafa;
+        }
+
+        .left-section {
+            background-color: #f4fafa;
+            padding: 60px 40px;
+            min-height: 100vh;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .star {
+            position: relative;
+            font-size: 2.5rem;
+            color: #ccc;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .star.full::before {
+            content: '\f005';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #ffc107;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .star.half::before {
+            content: '\f005';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #ffc107;
+            position: absolute;
+            left: 0;
+            top: 0;
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .review-fields {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .review-fields.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .star-base {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 400;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .left-section {
+                text-align: center;
+                padding: 40px 20px;
+            }
+        }
+    </style>
 </head>
-<body class="flex min-h-screen font-sans">
+<body>
 
-  <!-- Kiri: Gambar & Judul -->
-  <div class="w-2/5 bg-slate-100 p-10 flex flex-col items-center justify-center">
-    <h2 class="text-xl font-semibold text-center mb-4">
-      Apa yang Anda pikirkan tentang <br><span class="text-red-600"><?= htmlspecialchars($mobil['nama_mobil']) ?></span>?
-    </h2>
-    <img src="uploads/<?= htmlspecialchars($gambar) ?>" alt="<?= htmlspecialchars($mobil['nama_mobil']) ?>" class="w-full max-w-sm rounded-lg shadow-md">
-  </div>
-
-  <!-- Kanan: Form Review -->
-  <div class="w-3/5 p-10">
-    <h3 class="text-2xl font-bold mb-2">Nilai & Ulasan</h3>
-    <p class="mb-6 text-gray-700"><strong><?= htmlspecialchars($mobil['nama_mobil']) ?></strong></p>
-
-    <form method="POST" action="simpanReview.php" class="space-y-6">
-      <input type="hidden" name="mobil_id" value="<?= $mobil_id ?>">
-
-      <!-- Rating -->
-      <div>
-        <label class="block mb-2 font-semibold">Rating:</label>
-        <div id="starRating" class="flex space-x-1 text-3xl text-gray-300 cursor-pointer">
-          <input type="hidden" name="rating" id="ratingValue" required>
-          <?php for ($i = 1; $i <= 5; $i++): ?>
-            <span data-value="<?= $i ?>" class="star hover:text-yellow-400">★</span>
-          <?php endfor; ?>
+<div class="container-fluid">
+    <div class="row">
+        <!-- KIRI -->
+        <div class="col-md-5 left-section d-flex flex-column justify-content-center align-items-center">
+            <h3 class="fw-bold mb-3">Apa yang Anda pikirkan tentang<br><?= htmlspecialchars($mobil['nama_mobil']) ?>?</h3>
+            <img src="uploads/<?= htmlspecialchars($gambar) ?>" alt="<?= htmlspecialchars($mobil['nama_mobil']) ?>" class="img-fluid rounded shadow mt-3" style="max-height: 300px;">
         </div>
-      </div>
 
+<<<<<<< HEAD
       <!-- Komentar -->
       <div>
         <label class="block mb-1 font-semibold">Review pengalaman Anda:</label>
         <textarea name="komentar" class="w-full border border-gray-300 rounded-lg p-3" rows="5" placeholder="Kami akan menyukai pendapat Anda" required minlength="10"></textarea>
         <small class="text-sm text-gray-500">Minimum 10 kata dibutuhkan</small>
       </div>
+=======
+        <!-- KANAN -->
+        <div class="col-md-7 p-5">
+            <h4 class="fw-bold mb-4">Nilai & Ulasan</h4>
+            <form id="reviewForm" method="POST" action="simpanReview.php">
+                <input type="hidden" name="mobil_id" value="<?= $mobil_id ?>">
+                <input type="hidden" name="rating" id="ratingValue">
+>>>>>>> e4f1420 (Mengupdate semua kode)
 
-      <!-- Judul -->
-      <div>
-        <label class="block mb-1 font-semibold">Judul:</label>
-        <input type="text" name="judul" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Judul" required minlength="3">
-        <small class="text-sm text-gray-500">Minimum 3 kata dibutuhkan</small>
-      </div>
+                <!-- RATING -->
+                <div class="mb-4">
+                    <div class="rating-container" id="starContainer">
+                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                            <span class="star star-base" data-value="<?= $i ?>"><i class="fa-regular fa-star"></i></span>
+                        <?php endfor; ?>
+                    </div>
+                </div>
 
+<<<<<<< HEAD
       <!-- Submit -->
       <div>
         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow">
@@ -87,46 +153,95 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
       </div>
     </form>
   </div>
+=======
+                <!-- FIELD REVIEW -->
+                <div class="review-fields" id="reviewFields">
+                    <div class="mb-3">
+                        <label class="form-label">Judul Review</label>
+                        <input type="text" name="judul" class="form-control" placeholder="Judul review (min. 3 kata)" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ulasan</label>
+                        <textarea name="komentar" class="form-control" rows="5" placeholder="Tulis pengalaman Anda di sini (min. 10 kata)" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Kirimkan Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+>>>>>>> e4f1420 (Mengupdate semua kode)
 
-  <!-- Script bintang interaktif -->
-  <script>
-    const stars = document.querySelectorAll("#starRating .star");
-    const ratingValue = document.getElementById("ratingValue");
+<script>
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('ratingValue');
+    const reviewFields = document.getElementById('reviewFields');
+    let currentRating = 0;
 
-    stars.forEach(star => {
-      star.addEventListener("click", () => {
-        const value = star.getAttribute("data-value");
-        ratingValue.value = value;
-
-        stars.forEach(s => {
-          s.classList.remove("text-yellow-400");
-          if (s.getAttribute("data-value") <= value) {
-            s.classList.add("text-yellow-400");
-          }
+    stars.forEach((star, index) => {
+        star.addEventListener('mousemove', (e) => {
+            const rect = star.getBoundingClientRect();
+            const isHalf = (e.clientX - rect.left) < (rect.width / 2);
+            const value = isHalf ? index + 0.5 : index + 1;
+            highlightStars(value);
         });
-      });
 
-      star.addEventListener("mouseover", () => {
-        const value = star.getAttribute("data-value");
-        stars.forEach(s => {
-          s.classList.remove("text-yellow-400");
-          if (s.getAttribute("data-value") <= value) {
-            s.classList.add("text-yellow-400");
-          }
+        star.addEventListener('click', (e) => {
+            const rect = star.getBoundingClientRect();
+            const isHalf = (e.clientX - rect.left) < (rect.width / 2);
+            currentRating = isHalf ? index + 0.5 : index + 1;
+            ratingInput.value = currentRating;
+            highlightStars(currentRating);
+            reviewFields.classList.add('show');
         });
-      });
 
-      star.addEventListener("mouseout", () => {
-        const value = ratingValue.value;
-        stars.forEach(s => {
-          s.classList.remove("text-yellow-400");
-          if (s.getAttribute("data-value") <= value) {
-            s.classList.add("text-yellow-400");
-          }
+        star.addEventListener('mouseleave', () => {
+            highlightStars(currentRating);
         });
-      });
     });
-  </script>
 
+    function highlightStars(value) {
+        stars.forEach((star, index) => {
+            star.className = 'star star-base'; // reset
+            if (value >= index + 1) {
+                star.classList.add('full');
+            } else if (value >= index + 0.5) {
+                star.classList.add('half');
+            }
+        });
+    }
+
+    // Validasi Submit
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+        const judul = this.judul.value.trim();
+        const komentar = this.komentar.value.trim();
+
+        if (!ratingInput.value) {
+            e.preventDefault();
+            Swal.fire('Oops!', 'Silakan beri rating terlebih dahulu.', 'warning');
+            return;
+        }
+
+        if (judul.split(/\s+/).length < 3) {
+            e.preventDefault();
+            Swal.fire('Oops!', 'Judul harus minimal 3 kata.', 'warning');
+            return;
+        }
+
+        if (komentar.split(/\s+/).length < 10) {
+            e.preventDefault();
+            Swal.fire('Oops!', 'Review harus minimal 10 kata.', 'warning');
+            return;
+        }
+    });
+
+    <?php if (isset($_SESSION['review_status'])): ?>
+        Swal.fire({
+            icon: '<?= $_SESSION['review_status']['success'] ? 'success' : 'error' ?>',
+            title: '<?= $_SESSION['review_status']['message'] ?>'
+        });
+        <?php unset($_SESSION['review_status']); ?>
+    <?php endif; ?>
+</script>
 </body>
 </html>
