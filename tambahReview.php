@@ -162,7 +162,7 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Ulasan</label>
-                        <textarea name="komentar" class="form-control" rows="5" placeholder="Tulis pengalaman Anda di sini (min. 20 kata)" required></textarea>
+                        <textarea name="komentar" class="form-control" rows="5" placeholder="Tulis pengalaman Anda di sini (min. 10 kata)" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-danger">Kirimkan Review</button>
                 </div>
@@ -228,9 +228,9 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
             return;
         }
 
-        if (komentar.split(/\s+/).length < 20) {
+        if (komentar.split(/\s+/).length < 10) {
             e.preventDefault();
-            Swal.fire('Oops!', 'Review harus minimal 20 kata.', 'warning');
+            Swal.fire('Oops!', 'Review harus minimal 10 kata.', 'warning');
             return;
         }
     });
