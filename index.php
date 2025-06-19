@@ -10,17 +10,200 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+    /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet"/>
+    <style>
+    .review-card:hover {
+      transform: translateY(-4px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    }
+
+    .review-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+    .review-slider {
+      display: flex;
+      gap: 1rem;
+      animation: scrollLeft 20s linear infinite;
+    }
+    
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%); /* Karena konten diduplikat 2x */
+      }
+    }
+
+    .review-slider > .col {
+      flex: 0 0 auto;
+      width: 300px; /* Sesuaikan dengan ukuran card */
+    }
+
+    /* Opsional: Pause saat hover */
+    .review-slider-wrapper:hover .review-slider {
+      animation-play-state: paused;
+    }
+
+
+      .car-card .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+  }
+
+  .car-card .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+  }
+
+  .car-card .card-img-top {
+    transition: transform 0.3s ease;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .car-card .card-img-top:hover {
+    transform: scale(1.05);
+  }
+
+  .card-news {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+  }
+
+  .card-news:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+  }
+
+  .card-news img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .card-news:hover img {
+    transform: scale(1.05);
+  }
+
+  /* faqs */
+   .faq-section {
+    background: #f8f9fa;
+    padding: 4rem 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+  }
+
+  .faq-question h5 {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .faq-answer {
+    display: none;
+    padding-top: 0.5rem;
+    color: #555;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .faq-item .icon {
+    font-size: 1.2rem;
+    color: #dc3545;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.active .icon::before {
+    content: '+'; /* default ikon plus */
+    font-size: 24px;
+    color: #333;
+    background: #e0e0e0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item .icon::before {
+    content: "+"; /* plus icon (Bootstrap Icons) */
+    font-family: "Bootstrap Icons";
+    transition: all 0.3s ease;
+  }   
+
+  .faq-item.active .faq-question .icon::before {
+   content: '−';
+  background: #ff0000;
+  color: #fff;
+  }
+
+  .faq-right {
+    position: relative;
+    text-align: center;
+  }
+
+  .faq-right img {
+    width: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    max-height: 400px;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  }
+
+  .overlay-text .highlight {
+    color: #dc3545;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+    </style>
 
   </head>
   <body id="home">
@@ -54,6 +237,9 @@
             <li class="nav-item mx-2">
               <a class="nav-link" href="#berita">Berita</a>
             </li>
+            <!-- <li class="nav-item mx-2">
+              <a class="nav-link" href="#contact">Kontak</a>
+            </li> -->
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link" href="#faqs">Faqs</a>
@@ -69,30 +255,20 @@
     <!-- akhiran navbar -->
 
     <!-- section -->
-         <section class="hero">
-      <div class="blur-overlay"></div>
-      <div class="vertical-text">Tampilkan Mobil Baru</div>
-      <div class="hero-content">
-        <p class="tagline">/ Mobil Dalam Langkah Mudah</p>
-        <h1 class="title">
-          Cara Sempurna Untuk Mengeksplor<br />Dan Cek Mobil Di Platform Kami
-        </h1>
-        <div class="cta-buttons">
-          <button class="btn red" onclick="window.location.href='#porsche'">
-           Jelajahi Mobil
-          </button>
-          <button class="btn outline" onclick="window.location.href='#shop'">
-            Lihat Katalog
-          </button>
-        </div>
-        <div class="icons">
-          <span class="social-text">Kami ada di media sosial:</span>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
+  <section class="hero">
+    <div class="blur-overlay"></div>
+    <div class="hero-content animate-fadein">
+      <p class="tagline">/ Mobil Dalam Langkah Mudah</p>
+      <h1 class="title animate-slidein">
+        Cara Sempurna Untuk Mengeksplor<br />
+        Dan Cek Mobil Di Platform Kami
+      </h1>
+      <div class="cta-buttons">
+        <button class="btn red" onclick="window.location.href='login.php'">Booking</button>
+        <button class="btn outline" onclick="window.location.href='#shop'">Lihat Katalog</button>
       </div>
-    </section>
+    </div>
+  </section>
     <!-- akhiran section -->
 
     <!-- brand logo -->
@@ -147,312 +323,353 @@
       </a>
     </div>
     <!-- akhiran logo -->
+     
+   <!-- car -->
+    <?php require 'config/db.php'; ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!-- car -->
-         <?php require 'config/db.php'; ?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <section id="shop" class="py-5 bg-light">
+      <div class="container">
+        <p class="text-danger text-uppercase fw-bold mb-2 text-center">New Popular Car</p>
+        <h2 class="fw-bold text-center mb-4">Shop Populer New Car</h2>
 
-<section id="shop" class="py-5 bg-light">
-  <div class="container">
-    <p class="text-danger text-uppercase fw-bold mb-2 text-center">New Popular Car</p>
-    <h2 class="fw-bold text-center mb-4">Shop Populer New Car</h2>
+        <!-- Filter Merek -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+          <button class="btn btn-outline-dark btn-sm active filter-btn" data-filter="all">Show All</button>
+          <?php
+          $brands = $conn->query("
+            SELECT DISTINCT mr.nama_merek
+            FROM mobil m
+            JOIN merek mr ON m.id_merek = mr.id_merek
+          ");
+          while ($b = $brands->fetch_assoc()):
+            $brandName = htmlspecialchars($b['nama_merek']);
+          ?>
+            <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="<?= $brandName ?>"><?= $brandName ?></button>
+          <?php endwhile; ?>
+        </div>
 
-    <!-- Filter Merek -->
-    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-      <button class="btn btn-outline-dark btn-sm active filter-btn" data-filter="all">Show All</button>
-      <?php
-      $brands = $conn->query("
-        SELECT DISTINCT mr.nama_merek
-        FROM mobil m
-        JOIN merek mr ON m.id_merek = mr.id_merek
-      ");
-      while ($b = $brands->fetch_assoc()):
-        $brandName = htmlspecialchars($b['nama_merek']);
-      ?>
-        <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="<?= $brandName ?>"><?= $brandName ?></button>
-      <?php endwhile; ?>
-    </div>
+        <!-- Grid Mobil -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="carGrid">
+          <?php
+          $cars = $conn->query("
+            SELECT
+              m.id_mobil,
+              m.nama_mobil,
+              mr.nama_merek,
+              k.nama_kategori,
+              m.harga
+            FROM mobil m
+            JOIN merek mr ON m.id_merek = mr.id_merek
+            JOIN kategori k ON m.id_kategori = k.id_kategori
+            ORDER BY m.id_mobil DESC
+          ");
+          $i = 0;
+          while ($row = $cars->fetch_assoc()):
+            $id       = (int)$row['id_mobil'];
+            $name     = htmlspecialchars($row['nama_mobil']);
+            $brand    = htmlspecialchars($row['nama_merek']);
+            $category = htmlspecialchars($row['nama_kategori']);
+            $price    = number_format($row['harga'], 0, ',', '.');
 
-    <!-- Grid Mobil -->
-    <div class="row" id="carGrid">
-      <?php
-      $cars = $conn->query("
-        SELECT
-          m.id_mobil,
-          m.nama_mobil,
-          mr.nama_merek,
-          k.nama_kategori,
-          m.harga
-        FROM mobil m
-        JOIN merek mr ON m.id_merek = mr.id_merek
-        JOIN kategori k ON m.id_kategori = k.id_kategori
-        ORDER BY m.id_mobil DESC
-      ");
-      while ($row = $cars->fetch_assoc()):
-        $id       = (int)$row['id_mobil'];
-        $name     = htmlspecialchars($row['nama_mobil']);
-        $brand    = htmlspecialchars($row['nama_merek']);
-        $category = htmlspecialchars($row['nama_kategori']);
-        $price    = number_format($row['harga'], 0, ',', '.');
+            $imgQuery = $conn->query("SELECT gambar FROM gambar_mobil WHERE id_mobil = $id LIMIT 1");
+            $imgSrc = 'uploads/default.jpg';
+            if ($imgQuery && $img = $imgQuery->fetch_assoc()) {
+              $imgSrc = 'uploads/' . htmlspecialchars($img['gambar']);
+            }
 
-        $imgQuery = $conn->query("SELECT gambar FROM gambar_mobil WHERE id_mobil = $id LIMIT 1");
-        $imgSrc = 'uploads/default.jpg';
-        if ($imgQuery && $img = $imgQuery->fetch_assoc()) {
-          $imgSrc = 'uploads/' . htmlspecialchars($img['gambar']);
-        }
-      ?>
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4 car-card" data-brand="<?= $brand ?>">
-          <div class="card h-100 shadow-sm">
-            <img
-              src="<?= $imgSrc ?>"
-              class="card-img-top"
-              alt="<?= $name ?>"
-              style="height: 180px; object-fit: cover; cursor: pointer;"
-              onclick="window.location.href='detail_mobil.php?id=<?= $id ?>'"
-              onerror="this.src='uploads/default.jpg'"
-            >
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title"><?= $name ?></h5>
-              <p class="text-muted mb-2"><?= $category ?></p>
-              <div class="mt-auto d-flex justify-content-between align-items-center">
-                <span class="fw-bold">Rp<?= $price ?></span>
-                <a href="detail_mobil.php?id=<?= $id ?>" class="btn btn-sm btn-danger">Cek Detail</a>
+            // Delay animasi: lebih singkat
+            $delay = 0.05 * $i++;
+          ?>
+            <div class="col car-card animate__animated animate__fadeInUp" style="animation-delay: <?= $delay ?>s;" data-brand="<?= $brand ?>">
+              <div class="card h-100 shadow-sm border-0">
+                <img
+                  src="<?= $imgSrc ?>"
+                  class="card-img-top"
+                  alt="<?= $name ?>"
+                  style="height: 180px; object-fit: cover; cursor: pointer;"
+                  onclick="window.location.href='detail_mobil.php?id=<?= $id ?>'"
+                  onerror="this.src='uploads/default.jpg'"
+                >
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title"><?= $name ?></h5>
+                  <p class="text-muted mb-2"><?= $category ?></p>
+                  <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Rp<?= $price ?></span>
+                    <a href="detail_mobil.php?id=<?= $id ?>" class="btn btn-sm btn-danger">Cek Detail</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      <?php endwhile; ?>
-    </div>
-  </div>
-</section>
-
-<!-- Script Filter -->
-<script>
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      document.querySelectorAll('.car-card').forEach(card => {
-        const brand = card.getAttribute('data-brand');
-        card.style.display = (filter === 'all' || brand === filter) ? 'block' : 'none';
-      });
-    });
-  });
-</script>
-    <!-- akhiran car -->
-
-    <!-- review -->
-     <h2 id="ulasan"  style="text-align:center; margin-top:40px;" class="fw-bold">🏆 Ulasan dari Pelanggan Kami</h2>
-<p style="text-align:center; margin-bottom:30px;">Temukan apa yang dikatakan pelanggan Kami</p>
-
-<div class="review-container">
-  <?php
-  $result = $conn->query("SELECT r.*, m.nama_mobil FROM review r JOIN mobil m ON r.mobil_id = m.id_mobil ORDER BY r.created_at DESC LIMIT 3");
-  while ($row = $result->fetch_assoc()) {
-      $stars = str_repeat("★", $row['rating']) . str_repeat("☆", 5 - $row['rating']);
-      echo "<div class='review-card'>";
-      echo "<div class='stars'>$stars</div>";
-      echo "<div class='review-date'>" . date("d M Y", strtotime($row['created_at'])) . "</div>";
-      echo "<div class='review-title'>“" . htmlspecialchars(substr($row['komentar'], 0, 30)) . "…”</div>";
-      echo "<p>" . nl2br(htmlspecialchars($row['komentar'])) . "</p>";
-      echo "<div class='review-footer'>";
-      echo "<strong>" . htmlspecialchars($row['nama']) . "</strong><br>";
-      echo $row['nama_mobil'];
-      echo "</div>";
-      echo "</div>";
-  }
-  ?>
-</div>
-
-<div style="text-align:center; margin-top:20px;">
-  <a href="ulasan.php" class="lihat-link  text-danger">Lihat lebih banyak ulasan</a>
-</div>
-
-     <!-- akhiran review -->
-
-<!-- berita -->
-<?php
-require 'koneksi.php';
-$result = mysqli_query($conn, "SELECT * FROM berita");
-?>
-
-<div class="container py-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 id="berita" class="fw-bold">Berita Otomotif Dan Review</h2>
-    <a href="berita-otomotif.php" class="btn btn-link text-danger fw-semibold">
-      Baca Semua Berita Terbaru <i class="bi bi-arrow-right"></i>
-    </a>
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <?php while($row = mysqli_fetch_assoc($result)): ?>
-      <div class="col">
-        <a href="berita-detail.php?id=<?= $row['id']; ?>" class="text-decoration-none text-dark">
-          <div class="card h-100 shadow-sm border-0">
-            <img src="uploads/<?= htmlspecialchars($row['gambar']) ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($row['judul']) ?>" style="height: 180px; object-fit: cover;">
-            <div class="card-body d-flex flex-column">
-              <h6 class="card-title fw-bold">
-                <?= htmlspecialchars($row['judul']) ?>
-              </h6>
-              <p class="text-muted small mb-1">
-                <?= htmlspecialchars($row['penulis']) ?>, <?= date('d M Y', strtotime($row['tanggal_publikasi'])) ?>
-              </p>
-              <p class="card-text small mb-2">
-                <?= substr(strip_tags($row['isi']), 0, 80) ?>...
-                <span class="text-danger">Baca Selengkapnya</span>
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    <?php endwhile; ?>
-  </div>
-</div>
-<!-- akhiran berita -->
- 
-    <!-- FAQ -->
-    <section id="faqs" class="faq-container">
-      <div class="faq-left">
-        <h2>FAQs</h2>
-        <div class="faq-item active">
-          <div class="faq-question">
-            <h5>Apa itu ShowCar?</h5>
-            <span class="icon">−</span>
-          </div>
-          <div class="faq-answer">
-            <p>ShowCar Merupakan platform penjualan mobil secara Online</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Bagaimana saya dapat menghubungi ShowCar?</h5>
-            <span class="icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Anda dapat menghubungi nomor kami 82075289374</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Bagaimana saya dapat memesan mobil secara online?</h5>
-            <span class="icon">-</span>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Silahkan kunjungi website resmi Showcar. Lakukan login / regist,
-              pilih mobil, isi data sesuai petunju, dan lakukan pemesanan.
-              Silahkan tunggu tim kami menghubungi anda.
-            </p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Bagaimana cara melihat detail mobil?</h5>
-            <span class="icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Silahkan login atau regist dan buttuon buy pada mobil untuk
-              melihat detail
-            </p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Apakah Showcar menjual mobil baru?</h5>
-            <span class="icon">-</span>
-          </div>
-          <div class="faq-answer">
-            <p>Showcar hanya menjual mobil baru.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Apakah saya perlu mendaftar akun?</h5>
-            <span class="icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Ya, anda butuh akun jika ingin membeli mobil baru.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Apakah bisa melakukan test drive?</h5>
-            <span class="icon">-</span>
-          </div>
-          <div class="faq-answer">
-            <p>Anda dapat melakukan test drive jika membeli mobil</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Bagaimana mengetahui mobil masih tersedia?</h5>
-            <span class="icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Jika mobil masih tampil di website, mobil masih tersedia</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Apakah Showcar melayani seluruh Indonesia?</h5>
-            <span class="icon">-</span>
-          </div>
-          <div class="faq-answer">
-            <p>Showcar hanya melayani kota Pare pare dan sekitarnya</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>
-              Bagaimana saya tahu status pemesanan mobil yang akan dibeli?
-            </h5>
-            <span class="icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Akan muncul konfirmasi di halaman website bahwa anda telah
-              melakukan pemesanan dan silahkan tunggu tim kami menghubungi anda.
-            </p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Bagaimana metode pembayaran di Showcar?</h5>
-            <span class="icon">-</span>
-          </div>
-          <div class="faq-answer">
-            <p>
-              Anda dapat melakukan di toko fisik, baik tunai maupun non tunai.
-            </p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            <h5>Bagaimana saya dapat menghubungi layanan service ShowCar?</h5>
-            <span class="icon">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Anda dapat menghubungi nomor kami 82075289374</p>
-          </div>
-        </div>
-
-        <!-- Tambah item lainnya sesuai kebutuhan -->
-      </div>
-
-      <div class="faq-right">
-        <div class="image-container">
-          <img src="assets/img/footer.jpg" alt="ShowCar" />
-        </div>
-        <div class="overlay-text">
-          <span>Show</span><span class="highlight">Car</span>
+          <?php endwhile; ?>
         </div>
       </div>
     </section>
-    <!-- akhiran faq -->
+
+    <!-- Script Filter -->
+    <script>
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          document.querySelectorAll('.car-card').forEach(card => {
+            const brand = card.getAttribute('data-brand');
+            card.style.display = (filter === 'all' || brand === filter) ? 'block' : 'none';
+          });
+        });
+      });
+    </script>
+    <!-- akhiran car -->
+
+    <!-- review rating -->
+    <section id="ulasan" class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-2">Ulasan dari Pelanggan Kami</h2>
+        <p class="text-center text-muted mb-4">Temukan apa yang dikatakan pelanggan kami</p>
+
+        <div class="review-slider-wrapper overflow-hidden">
+          <div class="review-slider d-flex">
+            <?php
+            $result = $conn->query("
+              SELECT r.*, m.nama_mobil 
+              FROM review r 
+              JOIN mobil m ON r.mobil_id = m.id_mobil 
+              ORDER BY r.created_at DESC 
+              LIMIT 4
+            ");
+
+            $reviews = [];
+            while ($row = $result->fetch_assoc()) {
+              $reviews[] = $row;
+            }
+
+            // Loop dua kali agar efek scroll seamless
+            for ($i = 0; $i < 2; $i++) {
+              foreach ($reviews as $row) {
+                $rating = floatval($row['rating']);
+                $starsHTML = '';
+                for ($j = 1; $j <= 5; $j++) {
+                  if ($rating >= $j) {
+                    $starsHTML .= '<i class="fa-solid fa-star text-warning"></i> ';
+                  } elseif ($rating >= ($j - 0.5)) {
+                    $starsHTML .= '<i class="fa-solid fa-star-half-stroke text-warning"></i> ';
+                  } else {
+                    $starsHTML .= '<i class="fa-regular fa-star text-secondary"></i> ';
+                  }
+                }
+
+                $full_komentar = htmlspecialchars($row['komentar']);
+                $short_komentar = implode(' ', array_slice(explode(' ', $full_komentar), 0, 30)) . '...';
+
+                echo '<div class="col">';
+                echo '<div class="card h-100 shadow-sm border-0 review-card" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reviewModal" 
+                        data-nama="' . htmlspecialchars($row['nama']) . '" 
+                        data-judul="' . htmlspecialchars($row['judul']) . '" 
+                        data-komentar="' . $full_komentar . '" 
+                        data-rating="' . $row['rating'] . '" 
+                        data-mobil="' . htmlspecialchars($row['nama_mobil']) . '" 
+                        data-tanggal="' . date("d M Y", strtotime($row['created_at'])) . '">';
+                echo '<div class="card-body">';
+                echo '<div class="d-flex justify-content-between align-items-center mb-2">';
+                echo '<div>' . $starsHTML . '</div>';
+                echo '<small class="text-muted">' . date("d M Y", strtotime($row['created_at'])) . '</small>';
+                echo '</div>';
+                echo '<h6 class="card-title fw-semibold">“' . htmlspecialchars($row['judul']) . '”</h6>';
+                echo '<p class="card-text text-truncate small">' . $short_komentar . '</p>';
+                echo '</div>';
+                echo '<div class="card-footer bg-transparent border-top-0">';
+                echo '<small class="text-muted"><strong>' . htmlspecialchars($row['nama']) . '</strong> - ' . htmlspecialchars($row['nama_mobil']) . '</small>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }
+            }
+            ?>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="ulasan.php" class="btn btn-outline-danger btn-sm">Lihat lebih banyak ulasan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL ULASAN -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title" id="modalRating"></div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h5 class="fw-bold mb-2" id="modalJudul"></h5>
+            <p id="modalKomentar"></p>
+            <hr>
+            <p class="mb-1"><strong id="modalNama"></strong></p>
+            <p class="text-muted mb-1" id="modalMobil"></p>
+            <p class="text-end text-muted small" id="modalTanggal"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const reviewCards = document.querySelectorAll('.review-card');
+      const modalJudul = document.getElementById('modalJudul');
+      const modalKomentar = document.getElementById('modalKomentar');
+      const modalRating = document.getElementById('modalRating');
+      const modalNama = document.getElementById('modalNama');
+      const modalMobil = document.getElementById('modalMobil');
+      const modalTanggal = document.getElementById('modalTanggal');
+
+      reviewCards.forEach(card => {
+        card.addEventListener('click', function () {
+          const data = {
+            judul: this.getAttribute('data-judul'),
+            komentar: this.getAttribute('data-komentar'),
+            nama: this.getAttribute('data-nama'),
+            rating: this.getAttribute('data-rating'),
+            mobil: this.getAttribute('data-mobil'),
+            tanggal: this.getAttribute('data-tanggal'),
+          };
+
+          modalJudul.textContent = '“' + data.judul + '”';
+          modalKomentar.textContent = data.komentar;
+          modalNama.textContent = data.nama;
+          modalMobil.textContent = data.mobil;
+          modalTanggal.textContent = data.tanggal;
+
+          let rating = parseFloat(data.rating);
+          let stars = '';
+          for (let i = 1; i <= 5; i++) {
+            if (rating >= i) {
+              stars += '<i class="fa-solid fa-star text-warning"></i> ';
+            } else if (rating >= (i - 0.5)) {
+              stars += '<i class="fa-solid fa-star-half-stroke text-warning"></i> ';
+            } else {
+              stars += '<i class="fa-regular fa-star text-secondary"></i> ';
+            }
+          }
+          modalRating.innerHTML = stars;
+        });
+      });
+    </script>
+    <!-- akhiran review rating -->
+
+    <!-- berita -->
+    <?php
+    require 'koneksi.php';
+    $result = mysqli_query($conn, "SELECT * FROM berita WHERE status = 'publikasi'");
+    ?>
+
+    <div class="container py-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 id="berita" class="fw-bold">Berita Otomotif Dan Review</h2>
+        <a href="berita-otomotif.php" class="btn btn-link text-danger fw-semibold">
+          Baca Semua Berita Terbaru <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <?php
+        $i = 0;
+        while($row = mysqli_fetch_assoc($result)):
+          $delay = 0.05 * $i++;
+        ?>
+          <div class="col animate__animated animate__fadeInUp" style="animation-delay: <?= $delay ?>s;">
+            <a href="berita-detail.php?id=<?= $row['id']; ?>" class="text-decoration-none text-dark">
+              <div class="card card-news h-100 shadow-sm border-0">
+                <img src="uploads/<?= htmlspecialchars($row['gambar']) ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($row['judul']) ?>" style="height: 180px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                  <h6 class="card-title fw-bold">
+                    <?= htmlspecialchars($row['judul']) ?>
+                  </h6>
+                  <p class="text-muted small mb-1">
+                    <?= htmlspecialchars($row['penulis']) ?>, <?= date('d M Y', strtotime($row['tanggal_publikasi'])) ?>
+                  </p>
+                  <p class="card-text small mb-2">
+                    <?= substr(strip_tags($row['isi']), 0, 80) ?>...
+                    <span class="text-danger">Baca Selengkapnya</span>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    </div>
+    <!-- akhiran berita -->
+
+     <!-- faq -->
+    <section id="faqs" class="faq-section">
+      <div class="container">
+        <div class="row">
+          <!-- Hanya FAQ kiri saja -->
+          <div class="col-12">
+            <h2 class="fw-bold mb-4">FAQs</h2>
+
+            <div class="faq-item active">
+              <div class="faq-question">
+                <h5>Apa itu ShowCar?</h5>
+                <span class="icon"></span>
+              </div>
+              <div class="faq-answer">
+                <p>ShowCar merupakan platform penjualan mobil secara online.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h5>Bagaimana saya dapat menghubungi ShowCar?</h5>
+                <span class="icon"></span>
+              </div>
+              <div class="faq-answer">
+                <p>Anda dapat menghubungi nomor kami 82075289374.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h5>Bagaimana saya dapat memesan mobil secara online?</h5>
+                <span class="icon"></span>
+              </div>
+              <div class="faq-answer">
+                <p>Silakan login/register di website, pilih mobil, isi data, dan tunggu tim kami menghubungi Anda.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h5>Bagaimana cara melihat detail mobil?</h5>
+                <span class="icon"></span>
+              </div>
+              <div class="faq-answer">
+                <p>Silakan login dan klik tombol 'buy' untuk melihat detail mobil.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h5>Apakah ShowCar menjual mobil baru?</h5>
+                <span class="icon"></span>
+              </div>
+              <div class="faq-answer">
+                <p>Ya, ShowCar hanya menjual mobil baru.</p>
+              </div>
+            </div>
+
+            <!-- Tambahkan pertanyaan lainnya sesuai kebutuhan -->
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- akhiran faq -->
 
     <!-- Footer Start -->
     <footer>
@@ -478,64 +695,103 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
     </footer>
     <!-- Footer End -->
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-      const indicators = document.querySelectorAll(".indicator div");
-      const cards = document.querySelectorAll(".card-wrapper");
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelector('.filter-btn.active').classList.remove('active');
+          btn.classList.add('active');
 
-      indicators.forEach((indicator) => {
-        indicator.addEventListener("click", () => {
-          const index = indicator.dataset.index;
-
-          // Update active indicator
-          indicators.forEach((i) => i.classList.remove("active"));
-          indicator.classList.add("active");
-
-          // Switch cards with animation
-          cards.forEach((card) => {
-            if (card.dataset.index === index) {
-              card.classList.add("active");
-            } else {
-              card.classList.remove("active");
-            }
+          const filter = btn.getAttribute('data-filter');
+          document.querySelectorAll('.car-card').forEach(card => {
+            card.style.display = (filter === 'all' || card.dataset.brand === filter) ? '' : 'none';
           });
         });
       });
 
-        // Ambil semua elemen dengan class 'faq-question'
-  const faqQuestions = document.querySelectorAll('.faq-question');
-
-  faqQuestions.forEach((question) => {
-    question.addEventListener('click', () => {
-      const item = question.parentElement;
-      const icon = question.querySelector('.icon');
-
-      // Toggle class 'active' untuk menampilkan/sembunyikan jawaban
-      item.classList.toggle('active');
-
-      // Ubah simbol ikon + atau -
-      if (item.classList.contains('active')) {
-        icon.textContent = '−';
-      } else {
-        icon.textContent = '+';
-      }
-
-      // Tutup semua item lainnya (jika hanya ingin satu terbuka sekaligus)
-      faqQuestions.forEach((otherQuestion) => {
-        const otherItem = otherQuestion.parentElement;
-        const otherIcon = otherQuestion.querySelector('.icon');
-        if (otherItem !== item) {
-          otherItem.classList.remove('active');
-          otherIcon.textContent = '+';
-        }
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
       });
-    });
-  });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const notifikasi = [
+          { message: "Booking anda disetujui", read: false },
+          { message: "Booking anda ditolak", read: false }
+        ];
+
+        const notifMenu = document.getElementById("notif-menu");
+        const notifCount = document.getElementById("notif-count");
+
+        function renderNotifikasi() {
+          notifMenu.innerHTML = '';
+          let unreadCount = 0;
+
+          notifikasi.forEach((n, i) => {
+            if (!n.read) unreadCount++;
+            notifMenu.innerHTML += `
+              <li>
+                <a href="#" class="dropdown-item small text-wrap" onclick="markAsRead(${i})">${n.message}</a>
+              </li>
+            `;
+          });
+
+          if (notifikasi.length === 0) {
+            notifMenu.innerHTML = '<li class="text-muted text-center">Tidak ada notifikasi</li>';
+          }
+
+          notifCount.innerText = unreadCount;
+          notifCount.style.display = unreadCount > 0 ? 'inline-block' : 'none';
+        }
+
+        window.markAsRead = function (index) {
+          notifikasi[index].read = true;
+          renderNotifikasi();
+        };
+
+        renderNotifikasi();
+      });
+
+      document.getElementById("notificationDropdown").addEventListener("click", function (e) {
+        e.preventDefault();
+
+        fetch("get_notifikasi.php")
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("notifBody").innerHTML = data;
+            new bootstrap.Modal(document.getElementById("notifModal")).show();
+            document.getElementById("notif-count").innerText = '0';
+          });
+
+        fetch("tandai_dibaca.php");
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".car-card");
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add("show");
+          }, index * 150);
+        });
+      });
     </script>
-  </body>
-</html>
+
+    <!-- logout -->
+     <?php if (isset($_GET['logout'])): ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil logout',
+        text: 'Sampai jumpa lagi!',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    </script>
+    <?php endif; ?>
+
+      </body>
+    </html>
