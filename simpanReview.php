@@ -21,8 +21,8 @@ $komentar = trim($_POST['komentar']);
 if (mb_strlen($judul) < 3) {
     die("Judul minimal 3 karakter.");
 }
-if (mb_strlen($komentar) < 20) {
-    die("Komentar minimal 20 karakter.");
+if (mb_strlen($komentar) < 10) {
+    die("Komentar minimal 10 karakter.");
 }
 if ($rating < 0.5 || $rating > 5) {
     die("Rating harus antara 0.5 sampai 5.");
