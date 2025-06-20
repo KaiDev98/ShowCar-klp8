@@ -5,7 +5,6 @@ session_start();
 $success = false;
 $error = "";
 
-// Proses form saat disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $nama_lengkap     = trim($_POST['nama_lengkap']);
     $email            = trim($_POST['email']);

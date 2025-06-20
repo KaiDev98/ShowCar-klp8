@@ -7,11 +7,8 @@ if (!isset($_SESSION['username'])) {
 ?>
 <?php
 
-session_start();
 include 'koneksi.php';
 
-
-// Ambil brand dari URL, default 'all'
 $brand_filter = isset($_GET['brand']) ? strtolower($_GET['brand']) : 'all';
 ?>
 
@@ -347,7 +344,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
         <div class="faq-item active">
           <div class="faq-question">
             <h5>Apa itu ShowCar?</h5>
-            <span class="icon">−</span>
+            <span class="icon">+</span>
           </div>
           <div class="faq-answer">
             <p>ShowCar Merupakan platform penjualan mobil secara Online</p>
@@ -366,7 +363,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
         <div class="faq-item">
           <div class="faq-question">
             <h5>Bagaimana saya dapat memesan mobil secara online?</h5>
-            <span class="icon">-</span>
+            <span class="icon">+</span>
           </div>
           <div class="faq-answer">
             <p>
@@ -391,7 +388,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
         <div class="faq-item">
           <div class="faq-question">
             <h5>Apakah Showcar menjual mobil baru?</h5>
-            <span class="icon">-</span>
+            <span class="icon">+</span>
           </div>
           <div class="faq-answer">
             <p>Showcar hanya menjual mobil baru.</p>
@@ -409,7 +406,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
         <div class="faq-item">
           <div class="faq-question">
             <h5>Apakah bisa melakukan test drive?</h5>
-            <span class="icon">-</span>
+            <span class="icon">+</span>
           </div>
           <div class="faq-answer">
             <p>Anda dapat melakukan test drive jika membeli mobil</p>
@@ -427,7 +424,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
         <div class="faq-item">
           <div class="faq-question">
             <h5>Apakah Showcar melayani seluruh Indonesia?</h5>
-            <span class="icon">-</span>
+            <span class="icon">+</span>
           </div>
           <div class="faq-answer">
             <p>Showcar hanya melayani kota Pare pare dan sekitarnya</p>
@@ -450,7 +447,7 @@ $result = mysqli_query($conn, "SELECT * FROM berita");
         <div class="faq-item">
           <div class="faq-question">
             <h5>Bagaimana metode pembayaran di Showcar?</h5>
-            <span class="icon">-</span>
+            <span class="icon">+</span>
           </div>
           <div class="faq-answer">
             <p>
