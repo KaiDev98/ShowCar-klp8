@@ -1,6 +1,3 @@
-//diedit oleh rifki 
-//testtt 
-
 <?php
 session_start();
 include 'config.php';
@@ -146,7 +143,7 @@ while ($row = $q->fetch_assoc()) {
         </div>
 
         <!-- Tab review -->
-         <div class="tab-content" id="tab-review" style="display: none;">
+        <div class="tab-content" id="tab-review" style="display: none;">
           <?php
           $stmt = $conn->prepare("SELECT * FROM review WHERE mobil_id = ? ORDER BY created_at DESC");
           $stmt->bind_param("i", $id);
@@ -154,34 +151,59 @@ while ($row = $q->fetch_assoc()) {
           $reviews = $stmt->get_result();
 
           if ($reviews->num_rows > 0):
-            while ($rev = $reviews->fetch_assoc()): ?>
-          <div class="card mb-4 p-4 border rounded shadow">
-            <strong class="block text-lg font-semibold"><?= htmlspecialchars($rev['nama']) ?></strong>
-            <div class="flex items-center space-x-1 my-2">
-              <?php
-              for ($i = 1; $i <= 5; $i++) {
-                if ($i <= $rev['rating']) {
-                  echo '<span class="text-yellow-400 text-xl">★</span>';
-                } else {
-                  echo '<span class="text-gray-300 text-xl">★</span>';
-                }
-              }
-              ?>
-            </div>
-  <p class="text-gray-700"><?= nl2br(htmlspecialchars($rev['komentar'])) ?></p>
-  <small class="text-sm text-gray-500"><?= $rev['created_at'] ?></small>
-</div>
+            while ($rev = $reviews->fetch_assoc()): 
+              $rating = floatval($rev['rating']);
+          ?>
+            <div class="bg-white border shadow-md p-6 rounded-lg mb-6">
+              <!-- Judul Review -->
+              <?php if (!empty($rev['judul'])): ?>
+                <p class="text-2xl font-bold text-black mb-2"><?= htmlspecialchars($rev['judul']) ?></p>
+              <?php endif; ?>
 
-            <?php endwhile;
+              <!-- Rating Bintang dan Skor -->
+              <div class="flex items-center mb-2">
+                <?php
+                for ($i = 1; $i <= 5; $i++) {
+                  if ($rating >= $i) {
+                    echo '<i class="fa-solid fa-star text-orange-500 text-xl mr-1"></i>';
+                  } elseif ($rating >= ($i - 0.5)) {
+                    echo '<i class="fa-solid fa-star-half-stroke text-orange-500 text-xl mr-1"></i>';
+                  } else {
+                    echo '<i class="fa-regular fa-star text-gray-300 text-xl mr-1"></i>';
+                  }
+                }
+                ?>
+                <span class="ml-2 text-lg font-semibold"><?= number_format($rating, 1) ?>/5</span>
+                <!-- <span class="ml-3 font-medium text-gray-600">Istimewa</span> -->
+              </div>
+
+              <!-- Isi Komentar -->
+              <p class="text-gray-800 leading-relaxed mb-4"><?= nl2br(htmlspecialchars($rev['komentar'])) ?></p>
+
+              <!-- Reviewer dan Tanggal -->
+              <div class="flex items-center space-x-3">
+                <!-- Avatar bulat dengan inisial -->
+                <div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center font-bold">
+                  <?= strtoupper($rev['nama'][0]) ?>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm"><?= htmlspecialchars($rev['nama']) ?></p>
+                  <p class="text-xs text-gray-500"><?= date('d M, Y', strtotime($rev['created_at'])) ?></p>
+                </div>
+              </div>
+            </div>
+          <?php endwhile;
           else: ?>
-            <p>Belum ada ulasan untuk mobil ini.</p>
+            <p class="text-gray-600">Belum ada ulasan untuk mobil ini.</p>
           <?php endif; ?>
 
           <!-- Tombol Tulis Review -->
           <a href="tambahReview.php?mobil_id=<?= $id ?>" class="mt-5 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
-            ✍️ Tulis Review Anda
+            ✍ Tulis Review Anda
           </a>
         </div>
+
+        <!-- akhiran tab review -->
 
          <!-- Tab Diskusi -->
         <div class="tab-content" id="tab-diskusi" style="display: none;">
@@ -295,7 +317,7 @@ while ($row = $q->fetch_assoc()) {
     document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
 
-    const targetTab = document.querySelector(`.tab-item[data-tab="${tabParam}"]`);
+    const targetTab = document.querySelector(.tab-item[data-tab="${tabParam}"]);
     const targetContent = document.getElementById('tab-' + tabParam);
     if (targetTab && targetContent) {
       targetTab.classList.add('active');
