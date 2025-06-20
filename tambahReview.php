@@ -119,21 +119,12 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
             <img src="uploads/<?= htmlspecialchars($gambar) ?>" alt="<?= htmlspecialchars($mobil['nama_mobil']) ?>" class="img-fluid rounded shadow mt-3" style="max-height: 300px;">
         </div>
 
-<<<<<<< HEAD
-      <!-- Komentar -->
-      <div>
-        <label class="block mb-1 font-semibold">Review pengalaman Anda:</label>
-        <textarea name="komentar" class="w-full border border-gray-300 rounded-lg p-3" rows="5" placeholder="Kami akan menyukai pendapat Anda" required minlength="10"></textarea>
-        <small class="text-sm text-gray-500">Minimum 10 kata dibutuhkan</small>
-      </div>
-=======
         <!-- KANAN -->
         <div class="col-md-7 p-5">
             <h4 class="fw-bold mb-4">Nilai & Ulasan</h4>
             <form id="reviewForm" method="POST" action="simpanReview.php">
                 <input type="hidden" name="mobil_id" value="<?= $mobil_id ?>">
                 <input type="hidden" name="rating" id="ratingValue">
->>>>>>> e4f1420 (Mengupdate semua kode)
 
                 <!-- RATING -->
                 <div class="mb-4">
@@ -144,16 +135,6 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
                     </div>
                 </div>
 
-<<<<<<< HEAD
-      <!-- Submit -->
-      <div>
-        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow">
-          Kirim
-        </button>
-      </div>
-    </form>
-  </div>
-=======
                 <!-- FIELD REVIEW -->
                 <div class="review-fields" id="reviewFields">
                     <div class="mb-3">
@@ -162,7 +143,7 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Ulasan</label>
-                        <textarea name="komentar" class="form-control" rows="5" placeholder="Tulis pengalaman Anda di sini (min. 10 kata)" required></textarea>
+                        <textarea name="komentar" class="form-control" rows="5" placeholder="Tulis pengalaman Anda di sini (min. 20 kata)" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-danger">Kirimkan Review</button>
                 </div>
@@ -170,7 +151,6 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
         </div>
     </div>
 </div>
->>>>>>> e4f1420 (Mengupdate semua kode)
 
 <script>
     const stars = document.querySelectorAll('.star');
@@ -228,9 +208,9 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
             return;
         }
 
-        if (komentar.split(/\s+/).length < 10) {
+        if (komentar.split(/\s+/).length < 20) {
             e.preventDefault();
-            Swal.fire('Oops!', 'Review harus minimal 10 kata.', 'warning');
+            Swal.fire('Oops!', 'Review harus minimal 20 kata.', 'warning');
             return;
         }
     });
