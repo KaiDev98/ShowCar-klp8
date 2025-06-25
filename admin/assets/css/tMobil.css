@@ -1,0 +1,106 @@
+/* Reset & Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f1f5f9;
+  padding: 40px;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Form */
+form .form-group,
+form .form-inline {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #334155;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: border 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.form-inline {
+  display: flex;
+  gap: 20px;
+}
+
+.form-inline .form-group {
+  flex: 1;
+}
+
+/* Button */
+button[type="submit"] {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #1e40af;
+}
+
+/* Back Button (X) */
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background: url("../assets/img/close-icon.svg") no-repeat center center;
+  background-size: contain;
+  text-indent: -9999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

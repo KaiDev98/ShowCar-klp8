@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="file"],
+form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button,
+.btn-add {
+  background: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover,
+.btn-add:hover {
+  background: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #007bff;
+  color: white;
+}

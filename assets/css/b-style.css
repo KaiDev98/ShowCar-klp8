@@ -1,0 +1,220 @@
+/* ===== Base Layout ===== */
+body {
+  background-color: #f1f5f9; /* Soft gray-blue */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #2d3748;
+}
+
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+/* ===== Header ===== */
+.container header {
+  background: linear-gradient(90deg, #e53e3e, #9b2c2c); /* Red gradient */
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.container header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* ===== Form Section ===== */
+.container form {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px 36px;
+}
+
+.container form h2 {
+  grid-column: 1 / -1;
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #1a202c;
+}
+
+/* ===== Form Fields ===== */
+.container form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: #4a5568;
+}
+
+.container form input[type="text"],
+.container form input[type="email"],
+.container form input[type="date"],
+.container form input[type="datetime-local"],
+.container form select,
+.container form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  background-color: #edf2f7;
+  font-size: 1rem;
+  color: #2d3748;
+  transition: all 0.3s ease;
+}
+
+.container form input:focus,
+.container form select:focus,
+.container form textarea:focus {
+  border-color: #e53e3e;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.3);
+  outline: none;
+}
+
+/* ===== Button Group ===== */
+.container form .btn-group {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+.container form button {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.container form button[type="submit"] {
+  background-color: #e53e3e;
+  color: #fff;
+}
+
+.container form button[type="submit"]:hover {
+  background-color: #c53030;
+  transform: translateY(-2px);
+}
+
+.container form button[type="reset"] {
+  background-color: #a0aec0;
+  color: #fff;
+}
+
+.container form button[type="reset"]:hover {
+  background-color: #718096;
+  transform: translateY(-2px);
+}
+
+/* ===== Checkbox Group ===== */
+.container form .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+.container form .checkbox-group input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.container form .checkbox-group a {
+  color: #e53e3e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== Review Card ===== */
+.review-list {
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #e53e3e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card .star {
+  color: #f6ad55;
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+
+.card small {
+  display: block;
+  margin-top: 10px;
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+/* ===== Notifications ===== */
+.notif {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.notif.success {
+  background-color: #c6f6d5;
+  color: #22543d;
+  border-left: 6px solid #38a169;
+}
+
+.notif.error {
+  background-color: #fed7d7;
+  color: #742a2a;
+  border-left: 6px solid #e53e3e;
+}
+
+/* ===== Responsive Tweaks ===== */
+@media (max-width: 600px) {
+  .container form {
+    padding: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  .container form .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .review-list {
+    padding: 0 20px;
+  }
+}
