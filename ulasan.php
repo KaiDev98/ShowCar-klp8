@@ -1,12 +1,12 @@
 <?php
-// Koneksi ke database
+
 $koneksi = new mysqli("localhost", "root", "", "showroom");
 
 if ($koneksi->connect_error) {
     die("Koneksi gagal: " . $koneksi->connect_error);
 }
 
-// Ambil data review
+
 $sql = "SELECT * FROM review ORDER BY created_at DESC";
 $result = $koneksi->query($sql);
 ?>
