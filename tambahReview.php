@@ -9,7 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $mobil_id = isset($_GET['mobil_id']) ? intval($_GET['mobil_id']) : 0;
 
-// Ambil data mobil
 $stmt = $conn->prepare("SELECT nama_mobil FROM mobil WHERE id_mobil = ?");
 $stmt->bind_param("i", $mobil_id);
 $stmt->execute();
@@ -20,7 +19,6 @@ if (!$mobil) {
     die("Mobil tidak ditemukan.");
 }
 
-// Ambil gambar mobil
 $stmt_gambar = $conn->prepare("SELECT gambar FROM gambar_mobil WHERE id_mobil = ? LIMIT 1");
 $stmt_gambar->bind_param("i", $mobil_id);
 $stmt_gambar->execute();
@@ -113,20 +111,19 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
 
 <div class="container-fluid">
     <div class="row">
-        <!-- KIRI -->
+
         <div class="col-md-5 left-section d-flex flex-column justify-content-center align-items-center">
             <h3 class="fw-bold mb-3">Apa yang Anda pikirkan tentang<br><?= htmlspecialchars($mobil['nama_mobil']) ?>?</h3>
             <img src="uploads/<?= htmlspecialchars($gambar) ?>" alt="<?= htmlspecialchars($mobil['nama_mobil']) ?>" class="img-fluid rounded shadow mt-3" style="max-height: 300px;">
         </div>
 
-        <!-- KANAN -->
         <div class="col-md-7 p-5">
             <h4 class="fw-bold mb-4">Nilai & Ulasan</h4>
             <form id="reviewForm" method="POST" action="simpanReview.php">
                 <input type="hidden" name="mobil_id" value="<?= $mobil_id ?>">
                 <input type="hidden" name="rating" id="ratingValue">
 
-                <!-- RATING -->
+             
                 <div class="mb-4">
                     <div class="rating-container" id="starContainer">
                         <?php for ($i = 1; $i <= 5; $i++): ?>
@@ -135,7 +132,7 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
                     </div>
                 </div>
 
-                <!-- FIELD REVIEW -->
+              
                 <div class="review-fields" id="reviewFields">
                     <div class="mb-3">
                         <label class="form-label">Judul Review</label>
@@ -182,7 +179,7 @@ $gambar = $gambar_data ? $gambar_data['gambar'] : 'default.jpg';
 
     function highlightStars(value) {
         stars.forEach((star, index) => {
-            star.className = 'star star-base'; // reset
+            star.className = 'star star-base';
             if (value >= index + 1) {
                 star.classList.add('full');
             } else if (value >= index + 0.5) {
